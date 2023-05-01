@@ -1,0 +1,15 @@
+$color-blue: rgb(20, 55, 255);
+@font-face {
+  font-family: 'Big Noodles';
+  src: url('../assets/fonts/big_noodle.ttf');
+}
+
+p {
+  color: $color-blue;
+  font-family: 'Big Noodles';
+}
+body {
+  background-image: url('../assets/images/cat.jpg');
+  background-color: $color-blue;
+}
+
