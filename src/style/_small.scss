@@ -20,7 +20,8 @@ $color-red: #d20a32;
     }
 
     form {
-      width: 270px
+      width: 270px,;
+      margin-top: .5em;
     }
 
     input {
@@ -94,6 +95,15 @@ $color-red: #d20a32;
   }
   div{
     margin-bottom: 2em;
+  }
+  .page-detail__header{
+    flex-direction: column;
+
+    :nth-child(3),
+    :nth-child(2){
+      width: 100%;
+      justify-content: start;
+    }
   }
 
 }

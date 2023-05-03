@@ -34,7 +34,7 @@ const playVideo = (videoID) => {
   <div>
     <iframe width="100%" height="100%" src="https://www.youtube.com/embed/${trailer.id.videoId}" frameborder="0"></iframe>
   </div>
-  <h2>YOUTUBE</h2>
+  <h2>RELATED VIDEOS</h2>
   <div>
     <a target="_blank" href= "https://www.youtube.com/watch?v=${mainVideo.id.videoId}">
       <img src="${mainVideo.snippet.thumbnails.high.url}">
