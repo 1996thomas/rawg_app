@@ -1,42 +1,61 @@
+import displayGame from "./displayGame";
+import displayScreenshots from "./displayScreenshots";
+import displayHeroScreenshots from "./displayHeroScreenshots";
+import displayBuyGame from "./displayBuyGame";
+import displayVideo from "./displayVideo"
+
 const PageDetail = (argument) => {
   const preparePage = () => {
-    const cleanedArgument = argument.trim().replace(/\s+/g, "-");
-
-    const displayGame = (gameData) => {
-      const { name, released, description } = gameData;
-      const articleDOM = document.querySelector(".page-detail .article");
-      articleDOM.querySelector("h1.title").innerHTML = name;
-      articleDOM.querySelector("p.release-date span").innerHTML = released;
-      articleDOM.querySelector("p.description").innerHTML = description;
-    };
-
-    const fetchGame = (url, argument) => {
-      console.log(process.env.RAWG_API)
+    const fetchGameInfo = (url, argument) => {
       fetch(`${url}/${argument}?key=${process.env.RAWG_API}`)
         .then((response) => response.json())
         .then((responseData) => {
           displayGame(responseData);
+          displayBuyGame(responseData);
+          displayVideo(responseData)
+        })
+        .then(() => {
+          fetch(`${url}/${argument}/screenshots?key=${process.env.RAWG_API}`)
+            .then((response) => response.json())
+            .then((responseData) => {
+              displayHeroScreenshots(responseData);
+              displayScreenshots(responseData);
+            });
         });
     };
 
-    fetchGame('https://api.rawg.io/api/games', cleanedArgument);
+    fetchGameInfo("https://api.rawg.io/api/games", argument);
   };
 
   const render = () => {
-    pageContent.innerHTML = `
-      <section class="page-detail">
-        <div class="article">
-          <h1 class="title"></h1>
-          <p class="release-date">Release date : <span></span></p>
-          <p class="description"></p>
-        </div>
-      </section>
-    `;
+    const pageDetails = document.createElement("section");
+    const pageDetail = document.createElement("div");
+    pageDetails.classList.add("page-details");
+    pageDetail.classList.add("page-detail");
+    pageContent.append(pageDetails);
+
+    const heroScreenshots = document.createElement("div");
+    heroScreenshots.classList.add("hero-screenshot");
+
+    const displayGame = document.createElement("div");
+    displayGame.classList.add("page-detail__display");
+
+    const displayBuyGame = document.createElement("div");
+    const displayScreenshots = document.createElement("div");
+    displayBuyGame.classList.add("page-detail__buy");
+    pageDetail.append(displayGame, displayBuyGame, displayScreenshots);
+    pageDetails.append(heroScreenshots, pageDetail);
 
     preparePage();
+    
   };
-
+  const header = document.querySelector(".header");
+  pageContent.innerHTML = "";
+  console.log("delete header");
+  if (header !== null) {
+    header.remove();
+  }
   render();
 };
 
-export default PageDetail
+export default PageDetail;

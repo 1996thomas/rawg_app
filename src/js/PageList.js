@@ -1,42 +1,40 @@
-const PageList = (argument = '') => {
-  const preparePage = () => {
-    const cleanedArgument = argument.trim().replace(/\s+/g, '-');
+import displayResults from "./displayResults";
 
-    const displayResults = (articles) => {
-      const resultsContent = articles.map((article) => (
-        `<article class="cardGame">
-          <h1>${article.name}</h1>
-          <h2>${article.released}</h2>
-          <a href="#pagedetail/${article.id}">${article.id}</a>
-        </article>`
-      ));
-      const resultsContainer = document.querySelector('.page-list .articles');
-      resultsContainer.innerHTML = resultsContent.join("\n");
-    };
+const PageList = (argument = "") => {
+  const preparePage = () => {
+    const cleanedArgument = argument.trim().replace(/\s+/g, "-");
 
     const fetchList = (url, argument) => {
       const finalURL = argument ? `${url}&search=${argument}` : url;
       fetch(finalURL)
         .then((response) => response.json())
         .then((responseData) => {
-          displayResults(responseData.results)
+          let splittedData = responseData.results.slice(0, 9);
+          displayResults(splittedData);
+          const buttonShowMore = document.querySelector(
+            ".articles > button:last-child"
+          );
+          buttonShowMore.addEventListener("click", function (e) {
+            splittedData = responseData.results.slice(0, 18);
+            displayResults(splittedData);
+          });
         });
     };
 
-    fetchList(`https://api.rawg.io/api/games?key=${process.env.RAWG_API}`, cleanedArgument);
+    fetchList(
+      `https://api.rawg.io/api/games?key=${process.env.RAWG_API}`,
+      cleanedArgument
+    );
   };
-
   const render = () => {
-    pageContent.innerHTML = `
-      <section class="page-list">
-        <div class="articles">Loading...</div>
-      </section>
-    `;
-
+    const header = document.querySelector('.header')
+    pageContent.innerHTML = ''
+    if(header !== null){
+      header.remove()
+    }
     preparePage();
   };
-
   render();
 };
 
-export default PageList
+export default PageList;

@@ -1,16 +1,390 @@
 /*!*************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/style/index.scss ***!
   \*************************************************************************************************************************************************************************************/
-@font-face {
-  font-family: "Big Noodles";
-  src: url(e2ebffa44fbb63381589.ttf);
+@media screen and (max-width: 1555px) {
+  .auto-grid {
+    background-color: yellow;
+  }
+  .auto-grid .cardGame {
+    max-width: 600px;
+  }
 }
-p {
-  color: rgb(20, 55, 255);
-  font-family: "Big Noodles";
+@font-face {
+  font-family: "AvenirNextMedium";
+  src: url(94f2f163d4b698242fef.otf) format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "AvenirNextBold";
+  src: url(711a4eb654bf1139f123.otf) format("truetype");
+  font-weight: bold;
+}
+@font-face {
+  font-family: "AvenirNextItalic";
+  src: url(3e062c6caf04ecafa42c.otf) format("truetype");
+  font-style: italic;
+}
+* {
+  font-family: "AvenirNextMedium";
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  text-decoration: none;
 }
 
 body {
-  background-image: url(31d6cfe0d16ae931b73c.jpg);
-  background-color: rgb(20, 55, 255);
+  background-color: #191919;
+}
+
+header {
+  max-width: 80dvw;
+  margin: 2rem auto;
+  flex-grow: 1;
+}
+header section {
+  color: #fff;
+}
+header section h2 {
+  font-size: 5rem;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  align-items: center;
+  max-width: 80dvw;
+  margin: 2rem auto;
+}
+nav a {
+  font-family: "AvenirNextBold";
+  font-size: 3rem;
+  font-weight: bold;
+  color: #d20a32;
+}
+nav input {
+  border-radius: 100px;
+  border: 1px solid #fff;
+  padding: 0.5rem 1rem;
+  padding-inline: 2.3rem;
+  font-family: "AvenirNextMedium";
+  color: #fff;
+  background-color: #191919;
+}
+nav input:focus {
+  outline: none;
+}
+nav button {
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  height: 30px;
+  width: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-image: url(48aa76f4f39e7a082a9b.svg);
+}
+
+form {
+  position: relative;
+}
+
+.auto-grid {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 1rem;
+  justify-content: space-between;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+.auto-grid button {
+  position: absolute;
+  bottom: -2em;
+  right: 0;
+  font-size: 2rem;
+  padding: 0.2em 0.5em;
+  background-color: #d20a32;
+  color: #fff;
+  border: none;
+  font-family: "AvenirNextBold";
+  z-index: 1000;
+}
+
+.disabled {
+  display: none;
+}
+
+#pageContent {
+  margin: 0 auto;
+  padding: auto;
+}
+
+.cardGame {
+  max-width: 400px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.cardGame .cardGame__header {
+  flex: 3;
+  width: 100%;
+}
+.cardGame .cardGame__header img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16/9;
+}
+.cardGame .cardGame__body {
+  flex: 1;
+}
+.cardGame .cardGame__body :nth-child(1) {
+  font-family: "AvenirNextBold";
+  font-weight: 1.2rem;
+  margin: 0.2em 0;
+}
+
+.parent {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.hero-screenshot {
+  max-height: 40rem;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero-screenshot img {
+  width: 100%;
+  max-height: 40rem;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-screenshot button {
+  font-family: "AvenirNextBold";
+  font-size: clamp(1rem, -1.5rem + 5vw, 1.5rem);
+  padding: 0.5em 1em;
+  background-color: #d20a32;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10%;
+  right: 10vw;
+  font-weight: bold;
+}
+
+.page-details {
+  width: 100%;
+}
+
+.page-detail {
+  max-width: 80vw;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.page-detail__display {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-detail__header {
+  display: flex;
+  align-items: center;
+  margin-top: 2em;
+}
+.page-detail__header :nth-child(1) {
+  font-size: clamp(2.5rem, -1.5rem + 10vw, 3rem);
+  flex: 10;
+  font-family: "AvenirNextBold";
+}
+.page-detail__header :nth-child(3),
+.page-detail__header :nth-child(2) {
+  font-family: "AvenirNextBold";
+  font-size: 1.2em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  color: #d20a32;
+  font-weight: bold;
+}
+
+.page-detail__plot :nth-child(1) {
+  margin-bottom: 2em;
+}
+.page-detail__plot :nth-child(2),
+.page-detail__plot :nth-child(4) {
+  font-family: "AvenirNextBold";
+}
+.page-detail__plot :nth-child(3),
+.page-detail__plot :nth-child(5) {
+  margin-bottom: 1.5em;
+}
+
+.page-detail__info {
+  margin: 3em 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+.page-detail__info div {
+  display: flex;
+  flex-direction: column;
+}
+.page-detail__info div:nth-child(1) {
+  grid-area: 1/1/2/2;
+}
+.page-detail__info div:nth-child(2) {
+  grid-area: 1/2/2/3;
+}
+.page-detail__info div:nth-child(3) {
+  grid-area: 1/3/2/4;
+}
+.page-detail__info div:nth-child(4) {
+  grid-area: 1/4/2/5;
+}
+.page-detail__info div:nth-child(5) {
+  padding-top: 0.5em;
+  grid-area: 2/1/3/3;
+}
+.page-detail__info div:nth-child(6) {
+  max-width: 400px;
+  padding-top: 0.5em;
+  grid-area: 2/3/3/5;
+}
+
+.page-detail__buy {
+  width: 100%;
+  margin: 0 auto;
+}
+.page-detail__buy .platform {
+  display: flex;
+  margin: 0.8em 0;
+  text-decoration: underline #d20a32 2px;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: "AvenirNextBold";
+  color: #d20a32;
+  margin-top: 1em;
+}
+
+.parent img {
+  max-width: 98%;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+.parent .div1 {
+  grid-area: 1/1/3/3;
+}
+.parent .div2 {
+  grid-area: 1/3/2/4;
+  border-bottom: 0.5vw solid #191919;
+}
+.parent .div3 {
+  grid-area: 2/3/3/4;
+  border-top: 0.5vw solid #191919;
+}
+
+.video-div {
+  display: flex;
+  flex-direction: column;
+}
+.video-div h2 {
+  font-size: 3rem;
+  font-family: "AvenirNextBold";
+  color: #d20a32;
+  margin-top: 1em;
+}
+.video-div :nth-child(2) {
+  aspect-ratio: 16/9;
+}
+.video-div div:nth-child(4) {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.video-div div:nth-child(4) a {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+}
+.video-div div:nth-child(4) img {
+  background-color: blue;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  width: 100%;
+}
+.video-div div:nth-child(4) div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: baseline;
+  margin-left: 2rem;
+}
+.video-div div:nth-child(4) div h3 {
+  flex: 1;
+  font-size: 2rem;
+  font-family: "AvenirNextBold";
+  margin-bottom: 0.5em;
+}
+.video-div div:nth-child(4) div p {
+  color: #d20a32;
+  font-family: "AvenirNextBold";
+}
+.video-div .secondary-video {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.video-div .secondary-video a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9em;
+}
+.video-div .secondary-video a img {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  max-width: 480px;
+  width: 100%;
+}
+
+footer {
+  max-width: 80dvw;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  min-height: 10vh;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+footer::after {
+  content: "";
+  width: 10vw;
+  position: absolute;
+  background-color: #d20a32;
+  height: 15px;
+  top: 15px;
 }

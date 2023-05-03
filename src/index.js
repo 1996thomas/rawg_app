@@ -1,9 +1,9 @@
 import "./style/index.scss";
 import routes from "./js/routes.js";
-import "./js/PageList";
-import "./js/PageDetail";
-import "./js/Home";
 
+formSearch.addEventListener("submit", function (e) {
+  formSearch.action = `#pagelist/${search.value}`;
+});
 
 const callRoute = () => {
   const { hash } = window.location;
