@@ -7,7 +7,6 @@ const displayVideo = (argument) => {
   )
     .then((response) => response.json())
     .then((responseData) => {
-      console.log(responseData);
       playVideo(responseData);
     });
 };
@@ -19,7 +18,6 @@ const playVideo = (videoID) => {
   const videoDate = mainVideo.snippet.publishedAt;
 
   for (let index = 2; index < 5; index++) {
-    console.log(index);
     otherVideos.push(videoID.items[index]);
   }
 
@@ -49,7 +47,6 @@ const playVideo = (videoID) => {
   `;
   const secondaryVideo = document.querySelector(".secondary-video");
   for (let index = 0; index < otherVideos.length; index++) {
-    console.log(index);
     secondaryVideo.innerHTML += `
       <a target="_blank" href= "https://www.youtube.com/watch?v=${otherVideos[index].id.videoId}">
         <img src="${otherVideos[index].snippet.thumbnails.high.url}">

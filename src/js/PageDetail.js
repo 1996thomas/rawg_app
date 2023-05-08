@@ -51,7 +51,6 @@ const PageDetail = (argument) => {
   };
   const header = document.querySelector(".header");
   pageContent.innerHTML = "";
-  console.log("delete header");
   if (header !== null) {
     header.remove();
   }

@@ -1,8 +1,6 @@
 const showHeader = () => {
   const header = document.querySelector(".header");
-  console.log("showHeader est appelé", header);
   if (header === null) {
-    console.log("header créé", header);
     let header = document.createElement("header");
     header.classList.add("header");
     header.setAttribute("id", "header");

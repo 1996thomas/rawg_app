@@ -28,7 +28,7 @@ const PageList = (argument = "") => {
   };
   const render = () => {
     const header = document.querySelector('.header')
-    pageContent.innerHTML = ''
+    pageContent.innerHTML = 'prout'
     if(header !== null){
       header.remove()
     }
